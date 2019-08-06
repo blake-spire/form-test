@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+
+    <title>BASIC HTML</title>
+    <style>
+      section {
+        margin: 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <main>
+      <form></form>
+    </main>
+
+    <script type="text/javascript">
+      (function() {
+        const inputs = [
+          "text",
+          "number",
+          "date",
+          "email",
+          "password",
+          "search",
+          "tel",
+          "url",
+        ];
+
+        function createInput(inputProps, sectionID) {
+          const id = inputProps.name + "-" + sectionID;
+
+          // create input
+          const input = document.createElement("input");
+          input.setAttribute("name", inputProps.name);
+          input.setAttribute("type", inputProps.type);
+          input.setAttribute("id", id);
+          input.setAttribute("value", "");
+
+          // create label
+          const label = document.createElement("label");
+          const text = document.createTextNode(inputProps.type);
+          label.setAttribute("for", id);
+          label.appendChild(text);
+          label.appendChild(input);
+
+          // add to dom
+          const section = document.getElementById(sectionID);
+          section.appendChild(label);
+        }
+
+        function createSection(i) {
+          // create element
+          const h3 = document.createElement("h3");
+          const textNode = document.createTextNode(`Section ${i + 1}`);
+          h3.appendChild(textNode);
+
+          const section = document.createElement("section");
+          section.setAttribute("id", i);
+          section.appendChild(h3);
+
+          // add to dom
+          const formEl = document.querySelector("form");
+          formEl.appendChild(section);
+        }
+
+        const sections = Array.from({ length: 50 }, (_, i) => ({ inputs }));
+
+        sections.forEach((section, i) => {
+          createSection(i);
+          section.inputs
+            .map(input => ({ name: `${input}_${i}`, type: input }))
+            .flat()
+            .forEach(input => {
+              createInput(input, i);
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>

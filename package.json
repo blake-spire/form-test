@@ -5,12 +5,14 @@
   "dependencies": {
     "formik": "^1.5.8",
     "informed": "^2.11.8",
+    "parcel": "^1.12.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:basic": "parcel ./public/basic.html",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

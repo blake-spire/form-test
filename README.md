@@ -1,5 +1,17 @@
 # FORM TEST
 
-Testing Informed, Formik, and a vanilla React solution.
+Testing forms with:
 
-Bootstrapped with CRA.
+- Informed
+- Formik
+- vanilla React solution
+- vanilla js solution
+
+Bootstrapped with CRA and parcel
+
+start with
+
+```
+$ yarn start
+$ yarn run start:basic
+```
